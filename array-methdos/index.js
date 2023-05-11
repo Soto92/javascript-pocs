@@ -60,11 +60,175 @@ const everyDemo = () => {
   console.log([2, 2, 3].every((x) => x === 2)); // false
 };
 
+const myCustomEvery = () => {
+  const arr = [2, 2, 2];
+
+  Array.prototype.every = (func) => {
+    const arrBool = [];
+    arr.forEach((element) => {
+      arrBool.push(func(element));
+    });
+    let result = func(arr[0]);
+
+    arrBool.forEach((item) => {
+      if (arrBool[0] !== item) {
+        result = false;
+      }
+      console.log(item);
+    });
+    console.log({ result });
+    return result;
+  };
+
+  arr.every((x) => x === 2);
+};
+
 /**
 Array.prototype.some()
  */
 const someDemo = () => {
   console.log([2, 2, 3].some((x) => x === 2)); // true
+};
+
+/**
+Array.prototype.fill()
+ */
+const fillDemo = () => {
+  const arr = [1, 2, 3];
+  console.log(arr.fill(4)); // return [4,4,4]
+  console.log(arr.fill(1, 0, 2)); // return [1,1,4]
+};
+
+/**
+Array.prototype.filter()
+ */
+const filterDemo = () => {
+  const arr = [1, 2, 3];
+  console.log(arr.filter((item) => item < 3)); // return [1,2]
+};
+
+/**
+Array.prototype.find()
+ */
+const findDemo = () => {
+  const arr = [1, 2, 3];
+  console.log(arr.find((item) => item === 2)); // return 2
+};
+
+/**
+Array.prototype.findIndex()
+ */
+const findIndexDemo = () => {
+  const arr = [1, 2, 3];
+  console.log(arr.findIndex((item) => item > 1)); // return index 1
+};
+
+/**
+Array.prototype.findLast()
+ */
+const findLastDemo = () => {
+  const arr = [1, 2, 3];
+  console.log(arr.findLast((item) => item > 0)); // return 3
+};
+
+/**
+Array.prototype.findLastIndex()
+ */
+const findLastIndexDemo = () => {
+  const arr = [1, 2, 3];
+  console.log(arr.findLastIndex((item) => item > 0)); // return index 2
+};
+
+/**
+Array.prototype.flat()
+ */
+const flatDemo = () => {
+  const arr = [1, 2, 3, [5, 6]];
+  console.log(arr.flat()); // return [1,2,3,4,5,6]
+};
+
+/**
+Array.prototype.flatMap()
+ */
+const flatMapDemo = () => {
+  const arr = [1, 2];
+  console.log(arr.flatMap((num) => (num === 1 ? [1, 2] : [3, 4]))); // return [1,2,3,4]
+};
+
+/**
+Array.prototype.forEach()
+ */
+const forEachDemo = () => {
+  const arr = [1, 2, 3, 4];
+  arr.forEach((num) => console.log(num));
+};
+
+/**
+Array.prototype.from()
+ */
+const fromDemo = () => {
+  console.log(Array.from([1, 2, 3], (x) => x + x));
+  console.log(Array.from("Mauricio"));
+};
+
+/**
+Array.prototype.includes()
+ */
+const includesDemo = () => {
+  const arr = [1, 2, 3, 4];
+  console.log(arr.includes(3)); //true
+};
+
+/**
+Array.prototype.indexOf()
+ */
+const indexOfDemo = () => {
+  const arr = [1, 2, 3, 4];
+  console.log(arr.indexOf(3)); // return index 2
+};
+
+/**
+Array.prototype.isArray()
+ */
+const isArrayDemo = () => {
+  const arr = [1, 2, 3, 4];
+  console.log(Array.isArray(arr)); // true
+};
+
+/**
+Array.prototype.join()
+ */
+const joinDemo = () => {
+  const arr = [1, 2, 3, 4];
+  console.log(arr.join()); // 1,2,3,4
+};
+
+/**
+Array.prototype.keys()
+ */
+const keysDemo = () => {
+  const arr = [1, 2, 3, 4];
+  const iterator = arr.keys();
+  console.log(iterator.next().value);
+  console.log(iterator.next().value);
+  console.log(iterator.next().value);
+  console.log(iterator.next().value);
+};
+
+/**
+Array.prototype.lastIndexOf()
+ */
+const lastIndexOfDemo = () => {
+  const animals = ["Dodo", "Tiger", "Penguin", "Dodo"];
+  console.log(animals.lastIndexOf("Dodo"));
+};
+
+/**
+Array.prototype.map()
+ */
+const mapDemo = () => {
+  const animals = ["Dodo", "Tiger", "Penguin", "Dodo"];
+  console.log(animals.map((animal) => `Animal: ${animal}`));
 };
 
 /**
