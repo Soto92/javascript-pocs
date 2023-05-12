@@ -15,6 +15,32 @@ const iteratorDemo = () => {
 };
 
 /**
+Array.prototype.keys()
+ */
+const keysDemo = () => {
+  const arr = [1, 2, 3, 4];
+  const iterator = arr.keys();
+  console.log(iterator.next().value); // key 0
+  // or
+  for (const key of iterator) {
+    console.log(key);
+  }
+};
+
+/**
+Array.prototype.values()
+ */
+const valuesDemo = () => {
+  const arr = [1, 2, 3, 4];
+  const iterator = arr.values();
+  console.log(iterator.next().value); // value 1
+  // or
+  for (const value of iterator) {
+    console.log(value);
+  }
+};
+
+/**
 Array.prototype.at()
  */
 const atDemo = () => {
@@ -204,18 +230,6 @@ const joinDemo = () => {
 };
 
 /**
-Array.prototype.keys()
- */
-const keysDemo = () => {
-  const arr = [1, 2, 3, 4];
-  const iterator = arr.keys();
-  console.log(iterator.next().value);
-  console.log(iterator.next().value);
-  console.log(iterator.next().value);
-  console.log(iterator.next().value);
-};
-
-/**
 Array.prototype.lastIndexOf()
  */
 const lastIndexOfDemo = () => {
@@ -232,10 +246,167 @@ const mapDemo = () => {
 };
 
 /**
+Array.of()
+ */
+const ofDemo = () => {
+  console.log(Array.of("foo", 2, "bar", true));
+};
+
+/**
+Array.prototype.pop()
+ */
+const popDemo = () => {
+  const plants = ["broccoli", "cauliflower", "cabbage", "kale", "tomato"];
+  console.log(plants.pop());
+};
+
+/**
+Array.prototype.push()
+ */
+const pushDemo = () => {
+  const animals = ["pigs", "goats", "sheep"];
+  const count = animals.push("cows");
+  console.log(count); //4
+};
+
+/**
+Array.prototype.unshift() //
+ */
+const unshiftDemo = () => {
+  const plants = ["cauliflower", "cabbage", "kale", "tomato"];
+  console.log(plants.unshift("broccoli"));
+  console.log(plants);
+};
+
+/**
+Array.prototype.reduce()
+ */
+const reduceDemo = () => {
+  const arr = [1, 2, 3, 4];
+  const sum = arr.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0 // also accept a initial value
+  );
+  console.log(sum); //10
+};
+
+/**
+Array.prototype.reduceRight()
+ */
+const reduceRightDemo = () => {
+  const arr = [
+    [1, 2],
+    [3, 4],
+  ];
+  const reversed = arr.reduceRight((accumulator, currentValue) =>
+    accumulator.concat(currentValue)
+  );
+  console.log(reversed); //3,4,1,2
+};
+
+/**
+Array.prototype.reverse()
+ */
+const reverseDemo = () => {
+  const arr = [0, 1, 2];
+  arr.reverse();
+  console.log(arr); //2,1,0
+};
+
+/**
+Array.prototype.shift()
+ */
+const shiftDemo = () => {
+  const arr = [0, 1, 2];
+
+  const firstElement = arr.shift();
+  console.log(arr); //1,2
+  console.log(firstElement);
+};
+
+/**
+Array.prototype.slice()
+ */
+const sliceDemo = () => {
+  const animals = ["ant", "bison", "camel", "duck", "elephant"];
+
+  console.log(animals.slice(2));
+  // Expected output: Array ["camel", "duck", "elephant"]
+
+  console.log(animals.slice(2, 4));
+  // Expected output: Array ["camel", "duck"]
+};
+
+/**
 Array.prototype.sort()
  */
 const sortDemo = () => {
   const numberArray = [40, 1, 5, 200];
   numberArray.sort((a, b) => a - b);
   console.log(numberArray);
+};
+
+/**
+Array.prototype.splice()
+ */
+const spliceDemo = () => {
+  const months = ["Jan", "March", "April", "June"];
+  months.splice(1, 0, "Feb");
+  console.log(months); //[ 'Jan', 'Feb', 'March', 'April', 'June' ]
+
+  months.splice(4, 1, "May"); //[ 'Jan', 'Feb', 'March', 'April', 'May' ]
+  console.log(months);
+};
+
+/**
+Array.prototype.toString()
+ */
+const toStringDemo = () => {
+  const months = ["Jan", "March", "April", "June"];
+  console.log(months.toString());
+};
+
+/**
+Array.prototype.toLocalString()
+ */
+const toLocalStringDemo = () => {
+  const arr = ["Jan", "March", "April", new Date("03 Jul 1992 02:19:00 UTC")];
+  const date = arr.toLocaleString();
+  console.log(date);
+};
+
+/**
+Array.prototype.toReversed() // node 20
+ */
+const toReversedDemo = () => {
+  const arr = ["Jan", "March", "April"];
+  const reversed = arr.toReversed(); // Don´t change the original array
+  console.log(reversed);
+};
+
+/**
+Array.prototype.toSorted() // node 20
+ */
+const toSortedDemo = () => {
+  const values = [1, 10, 21, 2];
+  const sortedValues = values.toSorted((a, b) => a - b);
+  console.log(sortedValues); // [1, 2, 10, 21]
+  console.log(values); // [1, 10, 21, 2]
+};
+
+/**
+Array.prototype.with() // node 20
+ */
+const withDemo = () => {
+  const months = ["Jan", "Dec", "April", "June"];
+  console.log(months.with(1, "Feb"));
+};
+
+/**
+Array.prototype.toSpliced() // node 20
+ */
+const toSplicedDemo = () => {
+  const months = ["Jan", "March", "April", "June"];
+  const newMonths = months.splice(1, 0, "Feb");
+  console.log(newMonths); //[ 'Jan', 'Feb', 'March', 'April', 'June' ]
 };
