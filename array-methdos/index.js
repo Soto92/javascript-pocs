@@ -222,7 +222,7 @@ const isArrayDemo = () => {
 };
 
 /**
-Array.prototype.join()
+Array.prototype.join() accept string parameter to use as separator
  */
 const joinDemo = () => {
   const arr = [1, 2, 3, 4];
@@ -253,7 +253,7 @@ const ofDemo = () => {
 };
 
 /**
-Array.prototype.pop()
+Array.prototype.pop() Don't accept param
  */
 const popDemo = () => {
   const plants = ["broccoli", "cauliflower", "cabbage", "kale", "tomato"];
@@ -288,8 +288,26 @@ const reduceDemo = () => {
     0 // also accept a initial value
   );
   console.log(sum); //10
-};
 
+  // string[]
+  const numArr = ["Foo", "Bar"];
+  const result = numArr.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    "X"
+  );
+  console.log(result); //XFooBar
+
+  //Object[]
+  const objArr = [{ name: "Rafael" }, { name: "Maria" }, { name: "Foo" }];
+  const result2 = objArr.reduce(
+    (accumulator, currentValue) => {
+      return [{ name: accumulator[0].name + currentValue.name }];
+    },
+    [{ name: "" }]
+  );
+  console.log(result2); // [ { name: 'RafaelMariaFoo' } ]
+};
+reduceDemo();
 /**
 Array.prototype.reduceRight()
  */
